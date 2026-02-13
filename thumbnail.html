@@ -48,12 +48,13 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const clockface = urlParams.get('cw');
+        const branch = urlParams.get('branch') || 'main';
 
         //const cfs = ['donkey-kong', 'nyan-cat', 'pac-man', 'star-wars']
 
         if (clockface) {
 
-            const url = `https://raw.githubusercontent.com/jnthas/clock-club/main/shared/${clockface}.json`
+            const url = `https://raw.githubusercontent.com/jnthas/clock-club/${branch}/shared/${clockface}.json`
                 
             fetch(url).then(response => 
                 response.json().then(data => {
